@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BridgeRdp.Files/BridgeRdp.Files.csproj" />
+    <Project Path="src/BridgeRdp.Proxy/BridgeRdp.Proxy.csproj" />
+    <Project Path="src/BridgeRdp.Agent/BridgeRdp.Agent.csproj" />
+    <Project Path="src/BridgeRdp.Client/BridgeRdp.Client.csproj" />
+    <Project Path="src/BridgeRdp.Explorer/BridgeRdp.Explorer.csproj" />
+    <Project Path="src/BridgeRdp.Protocol/BridgeRdp.Protocol.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BridgeRdp.Tests/BridgeRdp.Tests.csproj" />
+  </Folder>
+</Solution>
