@@ -1,6 +1,7 @@
 using BridgeRdp.Explorer;
 using BridgeRdp.Proxy;
 using BridgeRdp.Files;
+using BridgeRdp.Agent;
 
 using var stop = new CancellationTokenSource();
 Console.CancelKeyPress += (_, e) => { e.Cancel = true; stop.Cancel(); };
@@ -10,6 +11,8 @@ try
         throw new ArgumentException("Usage: BridgeRdp.Agent.exe [--files-only | --proxy-only]");
     Console.WriteLine("Run this agent inside the target RDP session. Ctrl+C stops all services.");
     var services = new List<Task>();
+    services.Add(SessionKeepAlive.RunAsync(stop.Token));
+    Console.WriteLine("Session keep-alive enabled: mouse moves after 3 minutes without keyboard or mouse input.");
     if (!args.Contains("--files-only")) services.Add(Task.Run(async () =>
     {
         using var transport = new AgentTransport(DvcChannel.Open(ProxyProtocol.ChannelName));
